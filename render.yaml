@@ -17,9 +17,6 @@ databases:
   - name: iotflask-db
     plan: free
     region: oregon
-    engine: postgresql
-    version: 15
-    settings:
-      user: render
-      password: iot@2025  # Replace with a secure password
-      database: smart_auth
+    postgresMajorVersion: 16
+    databaseName: smart-auth
+    user: app_user
