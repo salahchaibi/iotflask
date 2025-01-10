@@ -4,13 +4,17 @@ from flask_sqlalchemy import SQLAlchemy
 import datetime
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
+import os
 import requests
 import uuid
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
 
 ALLOWED_IP = "127.0.0.1"  
+SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 
+# Set SQLAlchemy database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
