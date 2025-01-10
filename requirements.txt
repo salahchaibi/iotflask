@@ -5,3 +5,4 @@ marshmallow==3.19.0
 Flask-Cors==3.0.10
 requests==2.31.0
 mysqlclient==2.1.1
+marshmallow-sqlalchemy==0.28.0
