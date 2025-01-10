@@ -11,8 +11,7 @@ CORS(app)  # Allow cross-origin requests
 
 ALLOWED_IP = "127.0.0.1"  
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/smart_auth'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = TRUE
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
