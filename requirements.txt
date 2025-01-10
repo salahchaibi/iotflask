@@ -1,8 +1,7 @@
-Flask==2.2.5
-Flask-SQLAlchemy==2.5.1
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.3
 Flask-Marshmallow==0.15.0
 marshmallow==3.19.0
 Flask-Cors==3.0.10
 requests==2.31.0
-mysqlclient==2.1.1
 marshmallow-sqlalchemy==0.28.0
