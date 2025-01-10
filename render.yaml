@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: iotflask
+    env: python
+    repo: https://github.com/Aabanekarim/iotflask
+    branch: main  # Adjust if your default branch is not 'main'
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    plan: free
+    envVars:
+      - key: FLASK_ENV
+        value: development
+      - key: SQLALCHEMY_DATABASE_URI
+        value: "postgresql://{{DATABASE_USER}}:{{DATABASE_PASSWORD}}@{{DATABASE_HOST}}:{{DATABASE_PORT}}/{{DATABASE_NAME}}"  # Use Render's environment variables for database connection
+
+databases:
+  - name: iotflask-db
+    plan: free
+    region: oregon
+    engine: postgresql
+    version: 15
+    settings:
+      user: render
+      password: iot@2025  # Replace with a secure password
+      database: smart_auth
