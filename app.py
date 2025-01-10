@@ -11,7 +11,7 @@ CORS(app)  # Allow cross-origin requests
 
 ALLOWED_IP = "127.0.0.1"  
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = TRUE
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
