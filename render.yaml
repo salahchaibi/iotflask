@@ -5,7 +5,7 @@ services:
     repo: https://github.com/Aabanekarim/iotflask
     branch: main  # Adjust if your default branch is not 'main'
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "flask run --host=0.0.0.0"
+    startCommand: "flask db upgrade && flask run --host=0.0.0.0"
     plan: free
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
