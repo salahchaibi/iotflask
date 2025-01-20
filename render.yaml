@@ -5,7 +5,13 @@ services:
     repo: https://github.com/Aabanekarim/iotflask
     branch: main  # Adjust if your default branch is not 'main'
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "flask db upgrade && flask run --host=0.0.0.0"
+    startCommand: |
+      if [ ! -f migrations/ ]; then
+        flask db init
+      fi
+      flask db migrate -m "Ajout des modèles de base" || echo "No changes detected in migrations"
+      flask db upgrade
+      flask run --host=0.0.0.0
     plan: free
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
