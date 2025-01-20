@@ -7,6 +7,7 @@ from flask_cors import CORS
 import os
 import requests
 import uuid
+from flask_migrate import Migrate
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
 
@@ -19,7 +20,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
-
+migrate = Migrate(app, db)
 class Users(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     nom =db.Column(db.String(20))
