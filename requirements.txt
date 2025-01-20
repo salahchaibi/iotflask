@@ -7,3 +7,4 @@ requests==2.31.0
 mysqlclient==2.1.1
 marshmallow-sqlalchemy==0.28.0
 psycopg2-binary==2.9.7
+Flask-Migrate==4.0.4
