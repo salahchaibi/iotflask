@@ -11,7 +11,7 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests
 
-ALLOWED_IP = "127.0.0.1"  
+ALLOWED_IP = "127.0.0.1"
 SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
 
 # Set SQLAlchemy database URI
@@ -66,7 +66,7 @@ class Guest(db.Model):
         self.nom=nom1
         self.prenom=prenom1
         self.date=datetime.date.today()
-    
+
 
 class UserSchema(ma.Schema):
     class Meta:
@@ -153,7 +153,7 @@ def get_qr_code_data(registrationId):
     print(f"Client IP: {client_ip}")
 
     if client_ip != ALLOWED_IP:
-        return jsonify({"error": "Access denied"}), 403
+        return jsonify({f"error": "Access denied your ip {client_ip}"}), 403
 
     try:
         # Simulate fetching data (replace with a database query in production)
@@ -232,24 +232,24 @@ def set_data():
         return "green"
     else:
         return "red"
-    
+
 @app.route('/listuser', methods=['GET'])
 def listuser():
     all_users = Users.query.all()  # Assuming this returns a list of user objects
     for user in all_users:
         user_uid = User_uid.query.filter_by(id_user=user.id).first()  # Fetch the associated User_uid
         if user_uid:  # Make sure a User_uid is found
-            user.id_carte = user_uid.id_carte 
+            user.id_carte = user_uid.id_carte
         else:
             user.id_carte = None # Update the user's id_carte field
 
-    results = users_schema.dump(all_users) 
+    results = users_schema.dump(all_users)
     # Add a flag indicating whether id_carte is missing
     for result in results:
         result['has_id_carte'] = result['id_carte'] is not None # Serialize the updated user objects
-        
+
     return jsonify(results)
-    
+
 
 
 @app.route('/api/fetch-uid', methods=['GET'])

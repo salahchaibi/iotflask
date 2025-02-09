@@ -2,7 +2,7 @@ services:
   - type: web
     name: iotflask
     env: python
-    repo: https://github.com/Aabanekarim/iotflask
+    repo: https://github.com/salahchaibi/iotflask
     branch: main  # Adjust if your default branch is not 'main'
     buildCommand: "pip install -r requirements.txt"
     startCommand: |
@@ -19,8 +19,8 @@ services:
   - type: web
     name: iotflask-front
     runtime: static
-    repo: https://github.com/Aabanekarim/iotflask
-    staticPublishPath: .
+    repo: https://github.com/salahchaibi/iotflask
+    staticPublishPath: ./static
 
 databases:
   - name: iotflask-db
