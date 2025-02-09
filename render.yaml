@@ -20,7 +20,7 @@ services:
     name: iotflask-front
     runtime: static
     repo: https://github.com/salahchaibi/iotfront
-    staticPublishPath: ./static
+    staticPublishPath: .
 
 databases:
   - name: iotflask-db
