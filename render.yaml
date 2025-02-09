@@ -15,7 +15,7 @@ services:
     plan: free
     envVars:
       - key: SQLALCHEMY_DATABASE_URI
-        value: "postgresql://app_user:Mxa3w4rHY64GorhVZWN18K2BvWHCSAFa@dpg-cu0mq4btq21c73ctbmqg-a:5432/iotflask_db"  # Use Render's environment variables for database connection
+        value: "postgresql://app_user:259NFdM6xVIxroXd7jPAeRBnTGjLY4l0@dpg-cukejbrqf0us73fufhm0-a:5432/iotflask_db_4vyj"  # Use Render's environment variables for database connection
   - type: web
     name: iotflask-front
     runtime: static
